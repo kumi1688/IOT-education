@@ -1,0 +1,20 @@
+{
+  "name": "2020_01_16",
+  "version": "1.0.0",
+  "description": "js_develop exercise for express",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pm2": "^4.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "kumi1688"
+  },
+  "author": "kang",
+  "license": "ISC"
+}

@@ -1,0 +1,48 @@
+html
+    head    
+        title WEB1 - Main
+        meta(charset="utf8")
+    body
+        h1 
+            a(href="/") WEB
+        - for(var i = 0; i < list.length; i++){
+         li
+            a(href=`/page/${list[i]}`) #{list[i]}
+        - }
+
+        br
+        - if( type == "main"){
+            h1
+                a(href="/addFile") Add File
+            h2 #{fileId}
+            p #{detail}
+        - }
+        - else if ( type == 'addFile'){
+            form(action="/form_data", method="post")
+                h1 Form Data
+                p
+                    input(type="text", name="fileId", value="" placeholder="file name")
+                p
+                    input(type="text", name="detail", value="" placeholder="file detail")
+                p
+                    input(type="submit")
+        - }
+        - else{
+            h1
+                a(href="/addFile") Add File
+            h1  Update File
+                form(action="/update", method="post")
+                    input(type="text", name="fileId", value=`${fileId}`, hidden)
+                    input(type="text", name="detail", value="", placeholder="Enter the new detail")
+                    input(type="submit" value="업데이트") 
+                    
+            h1  Delete File
+                form(action="/delete" method="post")
+                    input(type="text", name="fileId", value=`${fileId}`, hidden)
+                    input(type="submit" value="삭제") 
+            h2 #{fileId}
+            p #{detail}
+        - }
+
+        
+        
