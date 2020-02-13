@@ -1,0 +1,61 @@
+html
+    head    
+        title WEB1 - Main
+        style
+            include color.css
+        meta(charset="utf8")
+    body
+        a(href="/") 메인화면으로
+        -if(type=='update')
+            a(href="/category/show" style='margin: 0px 0px 0px 10px') 카테고리 등록
+        hr
+        table  
+            tr
+                th 아이디
+                th 카테고리 이름 
+                th 카테고리 설명
+                th 업데이트
+                th 삭제
+                    
+            each category in data        
+                tr
+                    td #{category.id}
+                    td #{category.category}
+                    td #{category.description}
+                    td
+                        form(action='/category/showUpdateForm' method='post')
+                            input(type='text' name='id' value=`${category.id}` hidden)
+                            input(type='text' name='type' value='update' hidden)
+                            button update
+                    td(style="padding-right:10px")
+                        form(action='/category/delete' method='post')
+                            input(type='text' name='id' value=`${category.id}` hidden)
+                            button delete
+        hr
+
+        -if(type == 'update'){
+            h2 카테고리 업데이트
+            form(action='/category/update' method='post')
+                p
+                    input(type='text', name='id' value=id hidden)
+                p
+                    label 카테고리 이름
+                    input(type='text' name='category' value='' placeholder='category name' style='margin: 0px 10px 0px 10px')
+                p  
+                    label 카테고리 설명 
+                    textarea(name='description' value='' style="margin: 0px 10px 0px 10px") 
+                p
+                    input(type="submit" value="수정") 
+        -}
+        -else {
+            h2 카테고리 등록
+            form(action='/category/insert' method='post')
+                p
+                    label 카테고리 이름
+                    input(type='text' name='category' value='' placeholder='category name' style='margin: 0px 10px 0px 10px')
+                p   
+                    label 카테고리 설명 
+                    textarea(name='description' value='' style="margin: 0px 10px 0px 10px") 
+                p
+                    input(type="submit" value="등록") 
+        -}

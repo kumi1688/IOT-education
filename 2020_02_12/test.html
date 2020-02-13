@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>test</title>
+        <style>
+            h2{
+                color: red;
+            }
+            .fruit {
+                color : green;
+            }
+            #apple {
+                color: brown;
+            }
+            #banana {
+                color: gray;
+            }
+            .animal h1 {
+                color : yellow;
+            }
+            h3:hover{
+                color: green;
+            }
+            h3:active{
+                color: blue;
+            }
+            input:disabled{
+                background-color: gray;
+            }
+            input:focus{
+                background-color: skyblue;
+            }
+            li {
+                list-style: none;
+                float: left;
+                padding-left: 12px;
+                padding-right: 12px;
+            }
+
+            li:first-child{
+                border-radius: 10px 0 0 10px;
+            }
+            li:last-child{
+                border-radius: 0 10px 10px 0;
+            }
+            li:nth-child(2n){
+                background-color: gold;
+            }
+            li:nth-child(2n+1){
+                background-color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>1단계</h1>
+        <h2>2단계</h2>
+        <h3>3단계</h3>
+        
+        <h1 class='fruit'>apple</h1>
+        <h1 class='fruit'>banana</h1>
+        <h2 id='apple'>apple</h2>
+        <h2 id='banana'>banana</h2>
+        <div class='animal'>
+            <h1>animal</h1>
+        </div>
+        <h3>마우스를 올리면 녹색</h3>
+        <h3>마우스를 클릭하면 파랑색</h3>
+        <input type='text'> 사용 가능
+        <input type='text', disabled> 사용 불가능
+
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </body>
+</html>

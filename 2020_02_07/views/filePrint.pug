@@ -1,0 +1,10 @@
+h2(style="color:red") #{data.fileId}
+    hr
+    h3(style="color:blue") #{data.detail ? data.detail : NULL}
+    hr
+    p 카테고리 : #{data.category}
+    p 카테고리 설명 : #{data.description} 
+    hr
+    p 생성 시간 : #{data.created ? data.created : NULL}
+    p 업데이트 시간 : #{data.updated ? data.updated : NULL}
+    p 작성자 : #{data.user ? data.user : NULL}

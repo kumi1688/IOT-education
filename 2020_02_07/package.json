@@ -1,0 +1,22 @@
+{
+  "name": "2020_02_06",
+  "version": "1.0.0",
+  "main": "app_pug.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.4",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "moment": "^2.24.0",
+    "mysql": "^2.18.1",
+    "pug": "^2.0.4",
+    "static": "^2.0.0"
+  },
+  "description": ""
+}

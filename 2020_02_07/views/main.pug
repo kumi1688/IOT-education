@@ -1,0 +1,24 @@
+html
+    head    
+        title WEB1 - Main
+        style
+            include color.css
+        meta(charset="utf8")
+    body    
+        include fileList.pug
+            
+        - if( type == "main"){
+            hr
+            h2 #{data.fileId}
+            p #{data.detail}      
+        - }
+        - else if ( type == 'addFile'){
+            include addFile.pug
+        - }
+        - else if( type == 'update'){
+            include fileUpdate.pug
+        - }
+        - else{ // 내용 출력
+            include filePrint.pug
+        - }
+            

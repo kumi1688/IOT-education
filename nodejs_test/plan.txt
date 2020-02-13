@@ -1,0 +1,12 @@
+nodejs_test	| db ---------| login_db.js ( 데이터베이스 로그인 기능 ) 
+		|	      | register_db.js ( 데이터베이스 회원가입 기능 )
+		|		
+		| routes -----| login.js ( 로그인 관련 기능 모음 ) 
+		|	      | register.js ( 회원가입 관련 기능 모음 ) 
+		|
+		| views ------| login.pug ( 로그인 홈페이지 ) 
+		|	      | login_success.pug( 로그인 성공 페이지 ) 
+		|	      | login_failure.pug( 로그인 실패 페이지 )
+		|	      | register.pug ( 회원가입 페이지 ) 
+		|
+		| app.js ( 메인 프로그램 ) 

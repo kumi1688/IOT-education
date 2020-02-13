@@ -1,0 +1,29 @@
+
+a(href="/category/show") Category 검색
+hr
+
+form(method="get", action="/addfile")
+    div(style="padding-left: 50px")
+    button 파일추가
+hr
+table
+    tr
+        th 파일 이름
+        th 업데이트
+        th 삭제
+        
+    each element in list    
+        tr
+            td
+                a(href=`/page/${element.id}`, style="font-size:20px") #{element.fileId}
+            td
+                form(action='/delete', method='post' style="display:inline-block")
+                    input(type="text", name="id", value=`${element.id}`, hidden)
+                    button(style="margin: 0px 0px 0px 10px") 삭제
+            td
+                form(action='/showUpdateForm', method='post' style="display:inline-block")
+                    input(type="text", name="id", value=`${element.id}`, hidden)
+                    input(type="text", name="fileId", value=`${element.fileId}`, hidden)
+                    input(type="text", name="detail", value=`${element.detail}`, hidden)
+                    input(type="text", name="category_id", value=`${element.category_id}`, hidden)
+                    button 업데이트

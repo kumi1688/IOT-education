@@ -1,0 +1,79 @@
+
+
+html
+    head 
+        script(type='text/javascript', src='https://www.gstatic.com/charts/loader.js')
+        link(rel='stylesheet', href='../mycss.css')
+        h1 데이터 감시 홈페이지
+    body
+        link(rel="stylesheet", href="mycss.css")
+        div.centerInline
+            h2.centerInline2
+                a(href='/temperature') 온도 <br>
+                -if(type == 'temperature'){
+                    p 총 개수 #{queryData.length}
+                -}
+            h2.centerInline2
+                a(href='/light') 조도 <br>
+                -if(type == 'light'){
+                    p 총 개수 #{queryData.length}
+                -}
+            h2.centerInline2
+                a(href='/humidity') 습도 <br>
+                -if(type == 'humidity'){
+                    p 총 개수 #{queryData.length}
+                -}
+            h2.centerInline2
+                a(href='/all') 종합 <br>
+                -if(type == 'all'){
+                    p 총 개수 #{queryData.length}
+                -}
+
+                Table
+                    thead
+                        tr
+                            th 날짜
+                            -if(type == 'temperature' || type == 'all'){
+                            th 온도
+                            -} if ( type == 'light' || type == 'all'){
+                            th 조도
+                            -} if ( type == 'humidity' || type == 'all'){
+                            th 습도
+                            -} 
+                    
+                    
+                    tbody
+                        - if(type == 'temperature'){
+                            - for( var i = 0; i < queryData.length; i++){
+                                tr
+                                    td #{queryData[i].DTime}
+                                    td #{queryData[i].temperature}
+                            - }
+                        - }
+                        - else if ( type == 'humidity'){
+                            - for( var i = 0; i < queryData.length; i++){
+                                tr
+                                    td #{queryData[i].DTime}
+                                    td #{queryData[i].humidity}
+                            - }
+                        - } else if ( type == 'light'){
+                            - for( var i = 0; i < queryData.length; i++){
+                                tr
+                                    td #{queryData[i].DTime}
+                                    td #{queryData[i].Illumination}
+                            - }
+                        -} else {
+                            -for( var i = 0; i < queryData.length; i++){
+                                tr
+                                    td #{queryData[i].DTime}
+                                    td #{queryData[i].Temperature}
+                                    td #{queryData[i].Illumination}
+                                    td #{queryData[i].Humidity}
+                            - }
+                        - }
+                        
+            div
+                p hello
+            
+        
+            

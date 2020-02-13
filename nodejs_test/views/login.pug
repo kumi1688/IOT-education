@@ -1,0 +1,22 @@
+html
+    head
+        meta(charset='utf-8')
+        title 로그인 페이지
+    body
+        h1 로그인 상태 : #{authInfo.loginStatus}
+        h1
+            a(href='/') 메인화면으로
+        h1 로그인 페이지
+        form(action='/login/check' method='post')
+            label(style="padding-right: 65px") 아이디
+            input(type='text' name='username' value='' placeholder='아이디')
+            
+            br
+            br
+
+            label(style="padding-right: 50px") 비밀번호
+            input(type='text' name='password' value='' placeholder='비밀번호')
+
+            br
+            br
+            input(type='submit' value='로그인')

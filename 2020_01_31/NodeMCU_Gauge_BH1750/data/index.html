@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script type="text/javascript">
+      google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawChart);
+	  
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['LightLevel', 0],
+        ]);
+ 
+        var options = {
+          width: 1600, height: 480,
+          redFrom: 0, redTo: 100,
+          yellowFrom: 100, yellowTo: 300,
+          greenFrom: 300, greenTo: 800,
+          minorTicks: 5, max:800
+        };
+
+        var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+		
+		
+        setInterval(function() {
+		  var xhttp = new XMLHttpRequest();
+		  xhttp.onreadystatechange = function(){
+		    if(this.readyState ==4 && this.status ==200){
+			var lightlevel = this.responseText;
+			data.setValue(0,1,lightlevel);
+			chart.draw(data,options);
+			}
+		  };
+		  xhttp.open("GET","/lightlevel", true);
+		  xhttp.send();
+        }, 1000);
+      }
+    </script>
+  </head>
+  <body>
+	<center>
+	<h1> Light Level Monitor </h1><br>
+  <div id="chart_div" style="width: 1600px; height: 480px;"></div>
+	</center>
+  </body>
+</html>
+

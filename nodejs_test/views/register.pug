@@ -1,0 +1,35 @@
+html
+    head
+        meta(charset='utf-8')
+        title 회원가입 페이지
+    body
+        h1 로그인 상태 : #{authInfo.loginStatus}
+        h1
+            a(href='/') 메인화면으로
+        h1 회원가입 페이지
+        form(action='/register/register' method='post')
+            label(style="padding-right: 85px") 아이디
+            input(type='text' name='username' value='' placeholder='아이디')
+            
+            br
+            br
+
+            label(style="padding-right: 70px") 비밀번호
+            input(type='text' name='password' value='' placeholder='비밀번호')
+            
+            br
+            br
+            
+            label(style="padding-right: 50px") 사용자 이름
+            input(type='text' name='realName' value='' placeholder='사용자 이름')
+
+            br
+            br
+            
+            label(style="padding-right: 50px") 사용자 나이
+            input(type='text' name='age' value='' placeholder='사용자 나이')
+            
+            br
+            br
+            input(type='submit' value="등록")
+    

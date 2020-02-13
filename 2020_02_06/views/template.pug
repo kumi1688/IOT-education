@@ -1,0 +1,54 @@
+html
+    head    
+        title WEB1 - Main
+        meta(charset="utf8")
+    body
+        h1
+            form(method="get", action="/addfile")
+                a(href="/") Mysql 문서 찾기
+                div(style="padding-left: 50px")
+                button 파일추가
+        ol
+        - for(var i = 0; i < list.length; i++){
+            li
+                form(action='/delete', method='post' style="display:inline-block")
+                    a(href=`/page/${list[i].id}`, style="font-size:30px") #{list[i].fileId}
+                    input(type="text", name="id", value=`${list[i].id}`, hidden)
+                    button(style="margin: 0px 0px 0px 10px") 삭제
+                form(action='/showUpdateForm', method='post' style="display:inline-block")
+                    input(type="text", name="id", value=`${list[i].id}`, hidden)
+                    input(type="text", name="detail", value=`${list[i].detail}`, hidden)
+                    button 업데이트
+        - }
+
+        br
+        - if( type == "main"){
+            h2 #{data.fileId}
+            p #{data.detail}
+        - }
+        - else if ( type == 'addFile'){
+            form(action="/form_data", method="post")
+                h1 Form Data
+                p
+                    input(type="text", name="fileId", value="" placeholder="파일 이름")
+                p
+                    textarea(cols="30", rows="10" type="text", name="detail", value="" placeholder="파일 내용")
+                p
+                    input(type="text", name="user", value="" placeholder="작성자")
+                p
+                    input(type="submit" value="추가")
+        - }
+        - else if( type == 'update'){
+            h1  Update File
+                form(action="/update", method="post")
+                    input(type="text", name="id", value=`${data.id}`, hidden)
+                    textarea(cols="30", rows="10" type="text", name="detail", value="", placeholder="업데이트 내용") #{data.detail}
+                    input(type="submit" value="업데이트")
+        - }
+        - else{ // 내용 출력
+            h2(style="color:red") #{data.fileId}
+            h3(style="color:blue") #{data.detail ? data.detail : NULL}
+            p 생성 시간 : #{data.created ? data.created : NULL}
+            p 업데이트 시간 : #{data.updated ? data.updated : NULL}
+            p 작성자 : #{data.user ? data.user : NULL}
+        - }

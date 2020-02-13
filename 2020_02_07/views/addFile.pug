@@ -1,0 +1,18 @@
+form(action="/form_data", method="post")
+    h1 파일 추가하기
+    p
+        label(style="padding-right: 50px") 파일 이름
+        input(type="text", name="fileId", value="" placeholder="파일 이름")
+    p
+        label(style="padding-right: 50px") 파일 내용
+        textarea(cols="30", rows="10" type="text", name="detail", value="" placeholder="파일 내용")
+    p
+        label(style="padding-right: 70px") 작성자
+        input(type="text", name="user", value="" placeholder="작성자")
+    p
+        label(style="padding-right: 50px") 카테고리
+        select(name="category_id")
+            each category in data.categoryList
+                option(value=category.id) #{category.category}       
+    p
+        input(type="submit" value="추가")

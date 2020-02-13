@@ -1,0 +1,13 @@
+html
+    head   
+        meta(charset='utf-8')
+        title #{name} 성공
+    body
+        h1 #{name} 성공 페이지
+                
+        p   아이디      : #{data.username}
+        p   비밀번호    : #{data.password}
+        p   사용자 이름 : #{data.realName}
+        p   사용자 나이 : #{data.age}
+    
+        a(href='/') 메인 화면으로
